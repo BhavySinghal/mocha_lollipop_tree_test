@@ -36,6 +36,7 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 671088640
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 13742637056
 BOARD_FLASH_BLOCK_SIZE := 131072
 
+
 # Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
 #BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
@@ -45,6 +46,11 @@ BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/xiaomi/mocha/recovery/recovery_
 TARGET_RECOVERY_FSTAB := device/xiaomi/mocha/recovery.fstab
 RECOVERY_SDCARD_ON_DATA := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TARGET_PREBUILT_RECOVERY_KERNEL := device/xiaomi/mocha/kernel
+BOARD_MKRECOVERYIMG_ARGS := --dt device/xiaomi/mocha/dt.img
+PRODUCT_COPY_FILES += 
+	device/xiaomi/mocha/rootdir/etc/init:recovery/root/init \
+	device/xiaomi/mocha/rootdir/sbin/e2fsck_static:recovery/root/sbin/e2fsck_static
 
 
 TARGET_PREBUILT_KERNEL := device/xiaomi/mocha/kernel
